@@ -16,3 +16,21 @@ int linearSearch(int[] items, int target)
     }
     return -1;
 }
+
+int binarySearch(int[] items, int target)
+{
+    int lo = 0;
+    int hi = items.Length - 1;
+    while (lo <= hi)
+    {
+        int mid = (lo + hi) / 2;
+        comparisons++;
+        if (items[mid] == target)
+            return mid;
+        if (items[mid] < target)
+            lo = mid + 1;
+        else
+            hi = mid - 1;
+    }
+    return -1;
+}
